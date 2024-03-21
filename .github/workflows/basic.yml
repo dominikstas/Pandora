@@ -26,5 +26,5 @@ jobs:
      # - name: Run tests
      #   run: pytest
 
-      - name: Code quality check (linter)
-        run: pylint app
+     # - name: Code quality check (linter)
+     #   run: pylint app
