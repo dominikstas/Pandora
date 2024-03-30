@@ -2,6 +2,8 @@ import pygame
 import sys
 import os
 
+import scripts.menu.options as options
+
 # Create a full path to the fonts folder -> bauhaus font (for all the tekst)
 FONT_FOLDER = os.path.join("assets", "fonts", "bauhaus")
 
@@ -85,6 +87,10 @@ def main_menu(screen, SCREEN_WIDTH, SCREEN_HEIGHT):
                 if exit_button_rect.collidepoint(event.pos):
                     pygame.quit()
                     sys.exit()
+            
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if options_button_rect.collidepoint(event.pos):
+                    options.options_screen(screen, SCREEN_WIDTH, SCREEN_HEIGHT)
 
         # Background color
         screen.fill((100, 120, 50))
