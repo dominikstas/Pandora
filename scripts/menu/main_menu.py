@@ -3,6 +3,7 @@ import sys
 import os
 
 import scripts.menu.options as options
+import scripts.menu.load_game as load_game
 
 # Create a full path to the fonts folder -> bauhaus font (for all the tekst)
 FONT_FOLDER = os.path.join("assets", "fonts", "bauhaus")
@@ -82,15 +83,19 @@ def main_menu(screen, SCREEN_WIDTH, SCREEN_HEIGHT):
                     pygame.mouse.set_cursor(*pygame.cursors.tri_left)
                 else:
                     exit_color = GRAY
-
+            
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if exit_button_rect.collidepoint(event.pos):
-                    pygame.quit()
-                    sys.exit()
+                if load_button_rect.collidepoint(event.pos):
+                    load_game.load_game_screen(screen, SCREEN_WIDTH, SCREEN_HEIGHT)
             
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if options_button_rect.collidepoint(event.pos):
                     options.options_screen(screen, SCREEN_WIDTH, SCREEN_HEIGHT)
+                    
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if exit_button_rect.collidepoint(event.pos):
+                    pygame.quit()
+                    sys.exit()
 
         # Background color
         screen.fill((100, 120, 50))
