@@ -25,29 +25,29 @@ def main_menu(screen, SCREEN_WIDTH, SCREEN_HEIGHT):
     GRAY = (150, 150, 150)
 
     # Set up fonts
-    title_font = pygame.font.Font(os.path.join(FONT_FOLDER, "bauhaus.ttf"), 72)
-    button_font = pygame.font.Font(os.path.join(FONT_FOLDER, "bauhaus.ttf"), 36)
-
-    # Set up button dimensions
-    # Think about better designs than this
-    button_width = 200
-    button_height = 50
-    button_margin = 20
-
-    # Set up button positions
-    new_game_button_rect = pygame.Rect((SCREEN_WIDTH - button_width) // 2, SCREEN_HEIGHT // 2 - button_height - button_margin, button_width, button_height)
-    load_button_rect = pygame.Rect((SCREEN_WIDTH - button_width) // 2, SCREEN_HEIGHT // 2, button_width, button_height)
-    options_button_rect = pygame.Rect((SCREEN_WIDTH - button_width) // 2, SCREEN_HEIGHT // 2 + button_height + button_margin, button_width, button_height)
-    exit_button_rect = pygame.Rect(SCREEN_WIDTH - button_width - 20, SCREEN_HEIGHT - button_height - 20, button_width, button_height)
-
-    # Set up initial button colors
-    # Gray for now -> think about better color 
-    new_game_color = GRAY
-    load_color = GRAY
-    options_color = GRAY
-    exit_color = GRAY
+    title_font = pygame.font.Font(os.path.join(FONT_FOLDER, "bauhaus.ttf"), int(SCREEN_HEIGHT * 0.06))
+    button_font = pygame.font.Font(os.path.join(FONT_FOLDER, "bauhaus.ttf"), int(SCREEN_HEIGHT * 0.03))
 
     while True:
+        # Get the current screen dimensions
+        SCREEN_WIDTH, SCREEN_HEIGHT = pygame.display.get_surface().get_size()
+
+        # Set up button dimensions and positions
+        button_width = int(SCREEN_WIDTH * 0.2)
+        button_height = int(SCREEN_HEIGHT * 0.08)
+        button_margin = int(SCREEN_HEIGHT * 0.02)
+
+        new_game_button_rect = pygame.Rect((SCREEN_WIDTH - button_width) // 2, SCREEN_HEIGHT // 2 - button_height - button_margin, button_width, button_height)
+        load_button_rect = pygame.Rect((SCREEN_WIDTH - button_width) // 2, SCREEN_HEIGHT // 2, button_width, button_height)
+        options_button_rect = pygame.Rect((SCREEN_WIDTH - button_width) // 2, SCREEN_HEIGHT // 2 + button_height + button_margin, button_width, button_height)
+        exit_button_rect = pygame.Rect((SCREEN_WIDTH - button_width) // 2, SCREEN_HEIGHT // 2 + 2 * button_height + 2 * button_margin, button_width, button_height)
+
+        # Set up initial button colors
+        new_game_color = GRAY
+        load_color = GRAY
+        options_color = GRAY
+        exit_color = GRAY
+
         # Event handling loop
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -87,13 +87,9 @@ def main_menu(screen, SCREEN_WIDTH, SCREEN_HEIGHT):
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if load_button_rect.collidepoint(event.pos):
                     load_game.load_game_screen(screen, SCREEN_WIDTH, SCREEN_HEIGHT)
-            
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if options_button_rect.collidepoint(event.pos):
+                elif options_button_rect.collidepoint(event.pos):
                     options.options_screen(screen, SCREEN_WIDTH, SCREEN_HEIGHT)
-                    
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if exit_button_rect.collidepoint(event.pos):
+                elif exit_button_rect.collidepoint(event.pos):
                     pygame.quit()
                     sys.exit()
 
