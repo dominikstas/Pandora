@@ -1,5 +1,6 @@
 import scripts.menu.options as options
 import scripts.menu.load_game as load_game
+import scripts.menu.new_game as new_game
 
 import pygame
 import sys
@@ -80,6 +81,8 @@ def main_menu(screen, SCREEN_WIDTH, SCREEN_HEIGHT):
                 elif exit_button_rect.collidepoint(event.pos):
                     pygame.quit()
                     sys.exit()
+                elif new_game_button_rect.collidepoint(event.pos):
+                    new_game.new_game(screen, SCREEN_WIDTH, SCREEN_HEIGHT)
 
         # Fill background
         screen.fill(BLACK)
