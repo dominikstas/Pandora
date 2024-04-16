@@ -29,7 +29,7 @@ def new_game(screen, SCREEN_WIDTH, SCREEN_HEIGHT):
     pygame.display.flip()
 
     # Wait for a few seconds
-    time.sleep(3)
+    pygame.time.wait(3000)
     
     screen.fill((0, 0, 0))  # Clear the screen
     animation_text = font.render("Here you can see", True, (255, 255, 255))
@@ -38,7 +38,7 @@ def new_game(screen, SCREEN_WIDTH, SCREEN_HEIGHT):
     pygame.display.flip()
     
     # Wait for a few seconds
-    time.sleep(2)
+    pygame.time.wait(2000)
     
     screen.fill((0, 0, 0))  # Clear the screen
     animation_text = font.render("i mean, not right now", True, (255, 255, 255))
@@ -47,7 +47,7 @@ def new_game(screen, SCREEN_WIDTH, SCREEN_HEIGHT):
     pygame.display.flip()
 
     # Wait for a few seconds
-    time.sleep(2)
+    pygame.time.wait(2000)
 
     screen.fill((0, 0, 0))  # Clear the screen
     animation_text = font.render("cool intro", True, (255, 255, 255))
@@ -55,7 +55,7 @@ def new_game(screen, SCREEN_WIDTH, SCREEN_HEIGHT):
     screen.blit(animation_text, animation_rect)
     pygame.display.flip()
     
-    time.sleep(2)
+    pygame.time.wait(2000)
     
     screen.fill((0, 0, 0))  # Clear the screen
     animation_text = font.render("and now you can play", True, (255, 255, 255))
@@ -64,6 +64,6 @@ def new_game(screen, SCREEN_WIDTH, SCREEN_HEIGHT):
     pygame.display.flip()
 
     # Wait for a few seconds
-    time.sleep(2)
+    pygame.time.wait(2000)
 
     # Add the logic to start the actual game

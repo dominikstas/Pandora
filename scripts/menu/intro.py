@@ -29,7 +29,7 @@ def intro(screen, SCREEN_WIDTH, SCREEN_HEIGHT):
     pygame.display.flip()
 
     # Wait for a few seconds
-    time.sleep(1.5)
+    pygame.time.wait(1000)
     
     screen.fill((0, 0, 0))  # Clear the screen
     animation_text = font.render("to", True, (255, 255, 255))
@@ -38,7 +38,7 @@ def intro(screen, SCREEN_WIDTH, SCREEN_HEIGHT):
     pygame.display.flip()
 
     # Wait for a few seconds
-    time.sleep(1.5)
+    pygame.time.wait(1000)
 
     # Display "Pandora"
     screen.fill((0, 0, 0)) 
@@ -50,5 +50,5 @@ def intro(screen, SCREEN_WIDTH, SCREEN_HEIGHT):
 
 
     # Wait for a few seconds
-    time.sleep(2)
+    pygame.time.wait(2000)
 
