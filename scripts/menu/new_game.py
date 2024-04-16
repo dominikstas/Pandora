@@ -23,31 +23,45 @@ def new_game(screen, SCREEN_WIDTH, SCREEN_HEIGHT):
     pygame.display.flip()
 
     # Display the animation
-    animation_text = font.render("Welcome", True, (255, 255, 255))
+    animation_text = font.render("Chapter 1 - Something", True, (20, 80, 20)) #Dark green    
     animation_rect = animation_text.get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2))
     screen.blit(animation_text, animation_rect)
     pygame.display.flip()
 
     # Wait for a few seconds
-    time.sleep(1.5)
+    time.sleep(3)
     
     screen.fill((0, 0, 0))  # Clear the screen
-    animation_text = font.render("to", True, (255, 255, 255))
+    animation_text = font.render("Here you can see", True, (255, 255, 255))
+    animation_rect = animation_text.get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2))
+    screen.blit(animation_text, animation_rect)
+    pygame.display.flip()
+    
+    # Wait for a few seconds
+    time.sleep(2)
+    
+    screen.fill((0, 0, 0))  # Clear the screen
+    animation_text = font.render("i mean, not right now", True, (255, 255, 255))
     animation_rect = animation_text.get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2))
     screen.blit(animation_text, animation_rect)
     pygame.display.flip()
 
     # Wait for a few seconds
-    time.sleep(1.5)
+    time.sleep(2)
 
-    # Display "Pandora"
-    screen.fill((0, 0, 0)) 
-    pandora_text = font.render("Pandora", True, (20, 80, 20)) #Dark green
-    pandora_text = pygame.transform.scale(pandora_text, (pandora_text.get_width() * 2, pandora_text.get_height() * 2))
-    pandora_rect = pandora_text.get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2))
-    screen.blit(pandora_text, pandora_rect)
+    screen.fill((0, 0, 0))  # Clear the screen
+    animation_text = font.render("cool intro", True, (255, 255, 255))
+    animation_rect = animation_text.get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2))
+    screen.blit(animation_text, animation_rect)
     pygame.display.flip()
-
+    
+    time.sleep(2)
+    
+    screen.fill((0, 0, 0))  # Clear the screen
+    animation_text = font.render("and now you can play", True, (255, 255, 255))
+    animation_rect = animation_text.get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2))
+    screen.blit(animation_text, animation_rect)
+    pygame.display.flip()
 
     # Wait for a few seconds
     time.sleep(2)
