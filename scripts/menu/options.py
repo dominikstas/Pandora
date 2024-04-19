@@ -11,15 +11,18 @@ GRAY = (128, 128, 128)
 # Create a full path to the fonts folder -> bauhaus font (for all the tekst)
 FONT_FOLDER = os.path.join("assets", "fonts", "bauhaus")
 
-def options_screen(screen, SCREEN_WIDTH, SCREEN_HEIGHT):
+def options_screen(game):
     """
     Options screen function displaying buttons and handling events.
     
     Args:
-        screen (pygame.Surface): The surface representing the game window.
-        SCREEN_WIDTH (int): Width of the game window.
-        SCREEN_HEIGHT (int): Height of the game window.
+        game (Game): The Game object containing the screen and dimensions.
     """
+   
+    # Extract screen and dimensions from the Game object
+    screen = game.screen
+    SCREEN_WIDTH = game.width
+    SCREEN_HEIGHT = game.height
    
     # Set up font and colors
     title_font = pygame.font.Font(os.path.join(FONT_FOLDER, "bauhaus.ttf"), int(SCREEN_HEIGHT * 0.06))
