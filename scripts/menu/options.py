@@ -77,17 +77,7 @@ def options_screen(screen, SCREEN_WIDTH, SCREEN_HEIGHT):
                 elif volume_button_rect.collidepoint(event.pos):
                     # to do
                     pass
-                elif resolution_button_rect.collidepoint(event.pos):
-                    # Open resolution menu
-                    menu_open = not menu_open
-
-            if menu_open and event.type == pygame.MOUSEBUTTONDOWN:
-                for _, rect, resolution in resolution_buttons:
-                    if rect.collidepoint(event.pos):
-                        # Change resolution
-                        pygame.display.set_mode(resolution)
-                        menu_open = False
-                        break
+               
 
         # Background color
         screen.fill(BLACK)
@@ -108,25 +98,6 @@ def options_screen(screen, SCREEN_WIDTH, SCREEN_HEIGHT):
         volume_text = button_font.render("Volume", True, GRAY)
         volume_text_rect = volume_text.get_rect(center=volume_button_rect.center)
         screen.blit(volume_text, volume_text_rect)
-
-        pygame.draw.rect(screen, resolution_color, resolution_button_rect)
-        resolution_text = button_font.render("Change Resolution", True, GRAY)
-        resolution_text_rect = resolution_text.get_rect(center=resolution_button_rect.center)
-        screen.blit(resolution_text, resolution_text_rect)
-
-        # Render resolution menu if open
-        if menu_open:
-            resolution_buttons.clear()
-            menu_x = resolution_button_rect.left
-            menu_y = resolution_button_rect.bottom + button_margin
-            for text, width, height in resolution_options:
-                resolution_text = button_font.render(text, True, GRAY)
-                resolution_text_rect = resolution_text.get_rect(x=menu_x, y=menu_y)
-                resolution_buttons.append((text, resolution_text_rect, (width, height)))
-                menu_y += resolution_text_rect.height + button_margin
-            for text, rect, _ in resolution_buttons:
-                pygame.draw.rect(screen, BUTTON_COLOR, rect, 1) 
-                screen.blit(button_font.render(text, True, GRAY), rect)
 
         # Update the display
         pygame.display.flip()
