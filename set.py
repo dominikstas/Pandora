@@ -1,49 +1,38 @@
-# to do: fix closing window
-
 import tkinter as tk
 from tkinter import ttk
 import subprocess
 
-import tkinter as tk
-from tkinter import ttk
-import subprocess
+def get_resolution():
+    # Defining the variable selected_resolution
+    selected_resolution = None
+    root = tk.Tk()
+    root.title("Resolution Selection")
+    root.geometry("400x200")
 
-def run_main_with_resolution(resolution):
-    # Creating a command to run the main.py script with the specified resolution
-    command = ['python', 'main.py', '--resolution', resolution]
-    subprocess.run(command)
+    label = ttk.Label(root, text="Select resolution:")
+    label.pack(pady=10)
 
-def start_game():
-    # Getting the selected resolution
-    selected_resolution = resolution_combobox.get()
-    # Running the main.py script with the selected resolution
-    run_main_with_resolution(selected_resolution)
-    # Closing the window after a short delay
-    root.after(100, root.destroy)
+    resolutions = ["800x600", "1024x768", "1280x720", "1920x1080"]
+    resolution_combobox = ttk.Combobox(root, values=resolutions, state="readonly")
+    resolution_combobox.pack(pady=10)
+    resolution_combobox.current(0)
 
-# Creating the main window
-root = tk.Tk()
-root.title("Resolution Selection")
+    def confirm_resolution():
+        # Using nonlocal to refer to a variable from an outer scope
+        nonlocal selected_resolution  
+        selected_resolution = resolution_combobox.get()
+        root.destroy() 
 
-# Setting the window size
-root.geometry("400x200")
+    confirm_button = ttk.Button(root, text="Confirm", command=confirm_resolution)
+    confirm_button.pack(pady=10)
 
-# Adding a label
-label = ttk.Label(root, text="Select resolution:")
-label.pack(pady=10)
+    root.mainloop()
+    return selected_resolution
 
-# Available resolutions
-resolutions = ["800x600", "1024x768", "1280x720", "1920x1080"]
 
-# Creating a drop-down list with available resolutions
-resolution_combobox = ttk.Combobox(root, values=resolutions, state="readonly")
-resolution_combobox.pack(pady=10)
-resolution_combobox.current(0)  # Setting the default value
+def main():
+    resolution = get_resolution()
+    subprocess.Popen(['python', 'start.py', resolution])
 
-# Creating a button to start the game
-start_button = ttk.Button(root, text="Start Game", command=start_game)
-start_button.pack(pady=10)
-
-# Running the main program loop
-root.mainloop()
-
+if __name__ == "__main__":
+    main()
