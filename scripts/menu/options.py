@@ -40,12 +40,6 @@ def options_screen(screen, SCREEN_WIDTH, SCREEN_HEIGHT):
     # Set up initial button colors
     return_color = BUTTON_COLOR
     volume_color = BUTTON_COLOR
-    resolution_color = BUTTON_COLOR
-
-    # Resolution options
-    resolution_options = [("800x600", 800, 600), ("1200x600", 1200, 600), ("1280x720", 1280, 720), ("1536x864", 1536, 864), ("1920x1080", 1920, 1080)]
-    resolution_buttons = []
-    menu_open = False
 
     while True:
         # Event handling loop

@@ -1,6 +1,7 @@
 import pygame
 import time
 import os
+import scripts.inter.interface as interface
 
 # Create a full path to the fonts folder -> bauhaus font (for all the tekst)
 FONT_FOLDER = os.path.join("assets", "fonts", "bauhaus")
@@ -66,4 +67,4 @@ def new_game(screen, SCREEN_WIDTH, SCREEN_HEIGHT):
     # Wait for a few seconds
     pygame.time.wait(2000)
 
-    # Add the logic to start the actual game
+    interface.interface(screen, SCREEN_WIDTH, SCREEN_HEIGHT)
